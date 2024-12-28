@@ -1,0 +1,26 @@
+name: Neptune
+description: My image for Cosmic Desktop based on ublue
+
+base-image: ghcr.io/ublue-os/main
+image-version: 41
+
+modules:
+  - type: files
+    files:
+      - source: system
+        destination: /
+
+  - from-file: cosmic-packages.yml
+  - from-file: common-packages.yml
+  - from-file: common-files.yml
+  - from-file: fonts.yml
+
+  - type: default-flatpaks
+    notify: true
+    system:
+      repo-url: https://dl.flathub.org/repo/flathub.flatpakrepo
+      repo-name: flathub
+      install:
+        - org.mozilla.firefox
+
+  - type: signing # this sets up the proper policy & signing files for signed images to work fully
