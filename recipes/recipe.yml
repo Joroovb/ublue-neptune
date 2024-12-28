@@ -1,8 +1,8 @@
 name: Neptune
 description: My image for Cosmic Desktop based on ublue
 
-base-image: ghcr.io/ublue-os/main
-image-version: 40
+base-image: ghcr.io/ublue-os/base-main
+image-version: 41
 
 modules:
   - type: files
